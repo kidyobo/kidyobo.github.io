@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sol Meme Coin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3f4f6;
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .ca-address {
+            font-weight: bold;
+            text-decoration: underline;
+            cursor: pointer;
+            position: relative;
+        }
+        .copy-message {
+            display: none;
+            color: green;
+            font-size: 0.9em;
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #0073e6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to PigRocket Meme Coin!</h1>
+    <!-- 添加您的 Meme Gif -->
+    <img src="PigRocket.webp" alt="Sol Meme GIF">
+
+    <!-- CA 地址展示，单击复制功能 -->
+    <p><strong>Contract Address (CA):</strong> 
+        <span class="ca-address" id="caAddress">0xYourContractAddress</span>
+        <span class="copy-message" id="copyMessage">Copied!</span>
+    </p>
+
+    <!-- 链接到官方推特和 Telegram -->
+    <div class="links">
+        <a href="https://twitter.com/YourTwitterHandle" target="_blank">twitter</a>
+        <a href="https://t.me/YourTelegramLink" target="_blank">telegram</a>
+        <!-- <a href="https://t.me/YourTelegramLink" target="_blank">Telegram</a> -->
+    </div>
+
+    <script>
+        document.getElementById('caAddress').addEventListener('click', function() {
+            const tempInput = document.createElement('input');
+            tempInput.value = this.textContent;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // 显示提示文字
+            const copyMessage = document.getElementById('copyMessage');
+            copyMessage.style.display = 'inline';
+
+            // 1秒后隐藏提示文字
+            setTimeout(() => {
+                copyMessage.style.display = 'none';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
